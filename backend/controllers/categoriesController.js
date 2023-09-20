@@ -12,32 +12,31 @@ categoryCltr.createCategory = async (req, res) => {
 }
 categoryCltr.getAllCategory = async (req, res) => {
     try {
-        const catagories = await Category.find()
-        res.json(catagories)
+        const categories = await Category.find()
+        res.json(categories)
     } catch (err) {
         re.json(err)
     }
 }
-categoryCltr.editCategory = (req, res) => {
+categoryCltr.editCategory = async (req, res) => {
     const id = req.params.categoryid
     const body = req.body
-    Category.findByIdAndUpdate(id, body,)
-         .then((categoryDoc)=>{
-            res.json(categoryDoc)
-         })
-         .catch((err)=>{
-            res.json(err)
-         })
+    try {
+        const categoryDoc = await Category.findByIdAndUpdate(id, body,)
+        res.json(categoryDoc)
+    } catch (err) {
+        re.json(err)
+    }
 }
-categoryCltr.removeCategory = (req, res) => {
+categoryCltr.removeCategory = async (req, res) => {
     const id = req.params.id
-    Category.findByIdAndDelete(id)
-         .then((categoryDoc)=>{
-            res.json(categoryDoc)
-         })
-         .catch((err)=>{
-            res.json(err)
-         })
+    try {
+        const categoryDoc = await Category.findByIdAndDelete(id)
+        res.json(categoryDoc)
+    } catch (err) {
+        re.json(err)
+    }
+
 }
 
 module.exports = categoryCltr

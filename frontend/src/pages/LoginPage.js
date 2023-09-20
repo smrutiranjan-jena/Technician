@@ -23,7 +23,7 @@ const LoginPage = (props) => {
         setUsername('')
         setPassword('')
     }
-    const redirect=()=>{
+    const redirect = () => {
         props.history.push('/register')
     }
     return (
