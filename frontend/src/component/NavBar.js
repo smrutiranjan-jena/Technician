@@ -1,23 +1,79 @@
 import { Link } from 'react-router-dom'
 import '../index.css'
 const NavBar = (props) => {
+    const userRole = localStorage.getItem('role')
     return (
         <div>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
-                <div className="container-fluid">
-                    <p className="appLogo">Technician.com</p>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <Link to="/home" className="nav-item">Home</Link>
-                        <Link to="/about" className="nav-item">About Us</Link>
-                        <Link to="/contact" className="nav-item">Contact Us</Link>
-                        <Link to="/register" className="nav-item">Register</Link>
-                        <Link to="/login" className="nav-item">Login</Link>
+            {userRole === 'customer' ? (
+                <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                    <div className="container-fluid">
+                        <p className="appLogo">Technician.com</p>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarNav">
+                            <Link to="/home" className="nav-item">Home</Link>
+                            <Link to="/about" className="nav-item">About Us</Link>
+                            <Link to="/contact" className="nav-item">Contact Us</Link>
+                            <Link to="/mybook" className="nav-item">MyBookings</Link>
+                            <Link to="/profile" className="nav-item">Profile</Link>
+                            <Link to="/logout" className="nav-item">Logout</Link>
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            ) : userRole === 'technician' ? (
+                <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                    <div className="container-fluid">
+                        <p className="appLogo">Technician.com</p>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarNav">
+                            <Link to="/home" className="nav-item">Home</Link>
+                            <Link to="/about" className="nav-item">About Us</Link>
+                            <Link to="/contact" className="nav-item">Contact Us</Link>
+                            <Link to="/bookings" className="nav-item">Bookings</Link>
+                            <Link to="/enquiries" className="nav-item">Enquiries</Link>
+                            <Link to="/profile" className="nav-item">Profile</Link>
+                            <Link to="/logout" className="nav-item">Logout</Link>
+                        </div>
+                    </div>
+                </nav>
+            ) : userRole === 'admin' ? (
+                <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                    <div className="container-fluid">
+                        <p className="appLogo">Technician.com</p>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarNav">
+                            <Link to="/home" className="nav-item">Home</Link>
+                            <Link to="/bookings" className="nav-item">Bookings</Link>
+                            <Link to="/enquiries" className="nav-item">Enquiries</Link>
+                            <Link to="/customers" className="nav-item">Customers</Link>
+                            <Link to="/Technicians" className="nav-item">Technicians</Link>
+                            <Link to="/profile" className="nav-item">Profile</Link>
+                            <Link to="/logout" className="nav-item">Logout</Link>
+                        </div>
+                    </div>
+                </nav>
+            ) : (
+                <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                    <div className="container-fluid">
+                        <p className="appLogo">Technician.com</p>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarNav">
+                            <Link to="/home" className="nav-item">Home</Link>
+                            <Link to="/about" className="nav-item">About Us</Link>
+                            <Link to="/contact" className="nav-item">Contact Us</Link>
+                            <Link to="/register" className="nav-item">Register</Link>
+                            <Link to="/login" className="nav-item">Login</Link>
+                        </div>
+                    </div>
+                </nav>
+            )}
         </div>
     )
 }

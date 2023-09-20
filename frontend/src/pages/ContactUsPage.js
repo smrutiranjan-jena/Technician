@@ -7,7 +7,7 @@ const ContactUsPage = (props) => {
     return (
         <div>
             <NavBar />
-            <h1 className="aboutUsHeading">Meet Technician.com</h1>
+            <h1 className="aboutUsHeading">Meet With Us!</h1>
             <div className="aboutUsContainer">
                 <div className="boxContainer">
                     <div className="textarea">
@@ -21,15 +21,15 @@ const ContactUsPage = (props) => {
                             Mon - Sunday: 9:00am - 9:00pm
                             <br />
                             <i className="fa fa-phone"></i>
-                            +91-8917591529
+                            +91-8917591529 , +91-7684094990
                             <br />
-                            <i className="fa fa-phone"></i>
-                            +91-7684094990
-                            <br />
+                            <i className="fa fa-mobile"></i>
                             Technicianteaminfo@gmail.com
+                            <br />
                             <br />
                             Services Available for kolkata, chennai, Delhi,
                             Mumbai, Bengaluru, Pune.
+                            <br />
                         </p>
                     </div>
                     <div className="imagearea">

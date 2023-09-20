@@ -6,6 +6,8 @@ import AboutUsPage from "./pages/AboutUsPage"
 import ContactUsPage from "./pages/ContactUsPage"
 import RegisterPage from "./pages/RegisterPage"
 import LoginPage from "./pages/LoginPage"
+import Logout from './pages/LogoutPage';
+import ProfilePage from './pages/ProfilePage';
 const App = (props) => {
   return (
     <div>
@@ -15,6 +17,8 @@ const App = (props) => {
       <Route exact path="/contact" component={ContactUsPage} />
       <Route exact path="/register" component={RegisterPage} />
       <Route exact path="/login" component={LoginPage} />
+      <Route exact path="/logout" component={Logout} />
+      <Route exact path="/profile" component={ProfilePage} />
     </div>
   )
 }
