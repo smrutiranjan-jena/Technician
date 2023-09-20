@@ -5,6 +5,9 @@ import NavBar from "../component/NavBar"
 import Footer from "../component/Footer"
 const LoginPage = (props) => {
     const dispatch = useDispatch()
+    const loginInfo=useSelector((state)=>{
+        return state.loginInfo
+    })
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const handleUsernameChange = (e) => {
@@ -19,10 +22,11 @@ const LoginPage = (props) => {
             username: username,
             password: password
         }
-        dispatch(asyncUserLogin(logInData))
+        dispatch(asyncUserLogin(logInData,props))
         setUsername('')
         setPassword('')
     }
+    // console.log(loginInfo)
     const redirect = () => {
         props.history.push('/register')
     }

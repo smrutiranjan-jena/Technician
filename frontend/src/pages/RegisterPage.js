@@ -33,7 +33,7 @@ const RegisterPage = (props) => {
             password: password,
             role: role
         }
-        dispatch(asyncUserRegister(registeredData))
+        dispatch(asyncUserRegister(registeredData,props))
         const reset = () => {
             setUsername('')
             setEmail('')

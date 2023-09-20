@@ -89,7 +89,7 @@ body {
 }
 /* NavBar Styling start---------------------------------------------------------------------------------------------*/
 #navbarNav {
-    margin-left: 400px;
+    margin-left: 250px;
 }
 
 .nav-item {
@@ -305,6 +305,9 @@ body {
 }
 .FormContainer>form{
     padding: 10px;
+}
+.logout{
+  font-size: 50px;
 }
 /* Register page responsive*/
 @media screen and (min-width: 260px) and (max-width: 360px) {
