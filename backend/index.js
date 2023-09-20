@@ -7,12 +7,13 @@ const enquiryCltr=require('./controllers/enquiriesController')
 const authenticateUser = require('./middleware/authentication')
 const authorizeUser = require('./middleware/authorization')
 const configureDB = require('./config/configureDB')
+require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const app = express()
 app.use(cors())
 app.use(express.json())
-const port = 3004
+const port = process.env.PORT
 configureDB()
 
 //User routes #####################################################################################################
@@ -148,4 +149,5 @@ app.get('/api/enquiries/enquiries/all:technicianId', authenticateUser, (req, res
 
 app.listen(port, () => {
     console.log("server is running at port ", port)
+    // console.log(process.env)
 })
