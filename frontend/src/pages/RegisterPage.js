@@ -6,7 +6,7 @@ import NavBar from "../component/NavBar"
 import Footer from "../component/Footer"
 const RegisterPage = (props) => {
     const dispatch = useDispatch()
-    const registerInfo=useSelector((state)=>{
+    const registerInfo = useSelector((state) => {
         return state.registerInfo
     })
     const [username, setUsername] = useState('')
@@ -43,7 +43,7 @@ const RegisterPage = (props) => {
         reset()
     }
     console.log(registerInfo)
-    const redirect=()=>{
+    const redirect = () => {
         props.history.push('/login')
     }
     return (
@@ -62,7 +62,7 @@ const RegisterPage = (props) => {
                     </select><br />
                     <input type="checkbox" /><span className='f-text'> I agree to the terms & conditions</span><br />
                     <input type="submit" className='btn' value="Create Account" /><br />
-                    <p className='ff'>Already have an account?<span className='f-login'onClick={redirect}> Login</span></p>
+                    <p className='ff'>Already have an account?<span className='f-login' onClick={redirect}> Login</span></p>
                 </form>
             </div>
             <Footer />
