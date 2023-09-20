@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto&display=swap');
+
+:root {
+    --main-color: #4472C4
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    Box-sizing: border-FooterBox;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* LandingPage Styling start------------------------------------------------------------------------------------------*/
+.landingPageContainer {
+    height: 70vh;
+    background-color: var(--main-color);
+    color: white;
+}
+
+.logo>p {
+    margin-left: 40px;
+    padding-top: 10px;
+    font-size: 25px;
+    font-weight: 600;
+    font-family: cursive;
+}
+
+.center-content {
+    margin-left: 40px;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.center-content>.heading {
+    font-size: 60px;
+    font-weight: 600;
+    color:aliceblue
+}
+
+.center-content>.simple {
+    font-size: 20px;
+    /* font-family: cursive; */
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white
+}
+
+.landingPageContainer>button {
+    background-color: var(--main-color);
+    width: 400px;
+    padding: 10px;
+    margin: 10px 40px;
+    outline: 0;
+    border: 0;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+}
+/* Landing page responsive */
+
+/* LandingPage Styling end------------------------------------------------------------------------------------------*/
+@media screen and (min-width:300px) and (max-width:750px) {
+    .center-content>.heading {
+        font-size: 30px;
+    }
+    .center-content>.simple {
+        font-size: 15px;
+    }
+    .landingPageContainer>button {
+        width: 200px;
+    }
+    
+}
+@media screen and (min-width:260px) and (max-width:480px) {
+    .center-content>.heading {
+        font-size: 30px;
+    }
+    .center-content>.simple {
+        font-size: 12px;
+    }
+    .landingPageContainer>button {
+        width: 200px;
+    }
+    .center-content {
+        margin-right: 40px;
+    }
+    
+}
+/* NavBar Styling start---------------------------------------------------------------------------------------------*/
+#navbarNav {
+    margin-left: 400px;
+}
+
+.nav-item {
+    margin-left: 40px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    color: var(--main-color);
+}
+
+.appLogo {
+    margin-left: 40px;
+    padding-top: 10px;
+    font-size: 25px;
+    font-weight: 600;
+    font-family: cursive;
+    color: var(--main-color);
+}
+/* NavBar responsive */
+@media screen and (min-width: 250px) and (max-width: 992px) {
+    #navbarNav {
+        margin-left: 20px;
+    }
+
+    .nav-item {
+        display: block;
+        text-align: left;
+        border-bottom: 5px solid white;
+        margin-left: 0;
+        margin-top: 5px;
+
+    }
+
+    .appLogo {
+        margin-left: 10px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1201px) {
+    #navbarNav {
+        margin-left: 200px;
+    }
+
+    .appLogo {
+        margin-left: 10px;
+    }
+}
+/* NavBar Styling end---------------------------------------------------------------------------------------------*/
+
+/* HomePage Styling start---------------------------------------------------------------------------------------- */
+/* category component */
+.catContainer {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 30px;
+}
+
+.catImg {
+    height: 200px;
+}
+
+.catTitle {
+    color: black;
+    font-size: 14px;
+}
+
+.services {
+    cursor: pointer;
+    color: black;
+}
+
+.services:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.catCard {
+    padding: 5px;
+    Box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+/* HomePage Styling end---------------------------------------------------------------------------------------- */
+
+/* Footer Styling start------------------------------------------------------------------------------------------ */
+.FooterContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: auto;
+    background-color: black;
+    padding: 40px
+}
+
+.FooterBox {
+    width: 300px;
+    border-top: 1px solid dimgray;
+    border-bottom: 1px solid dimgray;
+
+    border-radius: 5px;
+    color: white;
+    list-style-type: none;
+    padding: 20px;
+}
+
+.FooterHeading {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.FooterBox>li:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.FooterBox>li {
+    color: dimgray;
+    font-weight: 900;
+}
+
+.fa {
+
+    font-size: 25px;
+    padding-right: 20px;
+
+}
+
+.fa:hover {
+    cursor: pointer;
+    color: dimgray;
+}
+
+.fa-facebook {
+    color: #3b5998;
+}
+
+.fa-linkedin {
+    color: #0A66C2;
+}
+
+.fa-instagram {
+    color: #d62976;
+}
+
+.fa-twitter {
+    color: #26a7de;
+}
+
+.fa-youtube {
+    color: #CD201F;
+}
+/* Footer Styling start------------------------------------------------------------------------------------------ */
+
+/* Register Page styling start----------------------------------------------------------------------------------- */
+.FormContainer {
+    /* border: 1px solid rgb(8, 8, 8); */
+    border-radius: 10px;
+    width: 350px;
+    margin:30px auto;
+    padding: 35px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.FormContainer>i{
+    font-size: 40px;
+    color: var(--main-color);
+    margin-left: 15px;
+}
+.FormContainer>form>input{
+    margin:10px 0;
+    outline: 0;
+    padding: 5px 30px;
+    border-radius: 5px;
+}
+.FormContainer>form>select{
+    margin:10px 0;
+    outline: 0;
+    padding: 5px 30px;
+    border-radius: 5px;
+}
+.FormContainer>form>textarea{
+    margin:10px 0;
+    outline: 0;
+    padding: 5px 30px;
+    border-radius: 5px;
+}
+.FormContainer>form>.btn{
+    background-color: var(--main-color);
+    color: white;
+    width: 100%;
+}
+.FormContainer>form>.f-text{
+    font-size: 14px;
+}
+.FormContainer>form>.ff{
+    font-size: 14px;
+    text-align: center;
+}
+.FormContainer>form>p>.f-login{
+    color: var(--main-color);
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+.FormContainer>form>p>.l-tc{
+    text-decoration: solid;
+}
+.FormContainer>form{
+    padding: 10px;
+}
+/* Register page responsive*/
+@media screen and (min-width: 260px) and (max-width: 360px) {
+    .FormContainer {
+        width: 280px;
+    }
+    .FormContainer>form>input{
+        padding: 5px 10px;
+    }
+    .FormContainer>form>textarea{
+        padding: 5px 14px;
+    }
+
+}
+/* Register Page styling end----------------------------------------------------------------------------------- */
+
+/* About Us Page styling start--------------------------------------------------------------------------------------- */
+.aboutUsHeading{
+    text-align: center;
+    padding: 40px;
+    color: dimgray;
+    font-size: 25px;
+    
+}
+.boxContainer{
+    /* border: 2px solid black; */
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.boxContainer>.imagearea{
+    width:300px;
+    /* border: 2px solid red; */
+}
+.boxContainer>.imagearea>img{
+   width: 100%;
+}
+.boxContainer>.textarea{
+    width:600px;
+    /* border: 2px solid red; */
+
+}
+.aboutUsmagic{
+    color:black;
+    font-size: 16px;
+    font-weight: 900;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/* About Us Page styling end--------------------------------------------------------------------------------------- */
+
+/* ContactUs Page Styling Start------------------------------------------------------------------------------------ */
+
+
+
+/* ContactUs Page Styling end------------------------------------------------------------------------------------ --*/
