@@ -168,10 +168,10 @@ body {
     color: black;
 }
 
-.services:hover {
+/* .services:hover {
     background-color: var(--main-color);
     color: white;
-}
+} */
 
 .catCard {
     padding: 5px;
