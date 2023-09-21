@@ -11,7 +11,7 @@ const technicianSchema=new Schema({
     },
     category:{
         type:String,
-        enum:['AIR CONDITIONER','WASHING MACHINE','TELEVISION','MICROWAVE OVEN','COOLER'],
+        enum:['AIR CONDITIONER','WASHING MACHINE','TELEVISION','MICROWAVE OVEN','COOLER','REFRIGERATOR','GRINDER'],
         required:true
     },
     city:{

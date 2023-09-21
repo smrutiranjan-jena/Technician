@@ -1,6 +1,6 @@
 import '../index.css'
 import { CardTitle, Card, ListGroup, ListGroupItem, CardBody, Button } from 'reactstrap';
-import { useEffect} from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncGetAllCategories } from '../redux/actions/categoryActions';
 const CategoryList = (props) => {
@@ -8,6 +8,12 @@ const CategoryList = (props) => {
     const categories = useSelector((state) => {
         return state.categories
     })
+    const userRole = localStorage.getItem('role')
+    const serviceAction = () => {
+        if (userRole === null) {
+            props.history.push('/register')
+        }
+    }
     useEffect(() => {
         (async () => {
             dispatch(asyncGetAllCategories())
@@ -24,6 +30,7 @@ const CategoryList = (props) => {
                         }}
                         className='catCard'
                         key={category._id}
+
                     >
                         <img
                             alt="Card"
@@ -34,13 +41,14 @@ const CategoryList = (props) => {
                             <CardTitle tag="h5" className='catTitle'>
                                 {category.title}
                             </CardTitle>
-                            {/* <CardText>
-                                available services
-                            </CardText> */}
                         </CardBody>
                         <ListGroup flush >
                             {category.mainServices.map((service) => {
-                                return <ListGroupItem className='services'>
+                                return <ListGroupItem
+                                    className='services'
+                                    onClick={serviceAction}
+
+                                >
                                     {service.title} - Rs {service.price}/-
                                 </ListGroupItem>
                             })}
