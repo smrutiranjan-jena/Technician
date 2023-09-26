@@ -7,11 +7,11 @@ const ContactUsPage = (props) => {
     return (
         <div>
             <NavBar />
-            <h1 className="aboutUsHeading">Meet With Us!</h1>
-            <div className="aboutUsContainer">
+            <h1 className="commonHeading">Meet With Us!</h1>
+            <div className="commonContainer">
                 <div className="boxContainer">
                     <div className="textarea">
-                        <p><span className="aboutUsmagic">Welcome to  Technician.com!</span>
+                        <p><span className="commonmagic">Welcome to  Technician.com!</span>
                             <br />
                             <br />
                             <i className="fa fa-home"></i>
@@ -38,8 +38,8 @@ const ContactUsPage = (props) => {
                 </div>
             </div>
             {/* second..................................................... */}
-            <h1 className="aboutUsHeading">Need Help?</h1>
-            <div className="aboutUsContainer">
+            <h1 className="commonHeading">Need Help?</h1>
+            <div className="commonContainer">
                 <div className="boxContainer">
                     <div className="imagearea">
                         <img src={contactone} />

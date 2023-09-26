@@ -77,4 +77,20 @@ userCltr.removeUser = async (req, res) => {
         res.json(err)
     }
 }
+userCltr.getAllCustomers = async (req, res) => {
+    try{
+        const allCustomers=await User.find({role:'customer'})
+        res.json(allCustomers)
+    }catch(err){
+        res.json(err)
+    }
+}
+userCltr.getAllTechnicians = async (req, res) => {
+    try{
+        const allTechnicians=await User.find({role:'technician'})
+        res.json(allTechnicians)
+    }catch(err){
+        res.json(err)
+    }
+}
 module.exports = userCltr

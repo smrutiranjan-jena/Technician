@@ -36,14 +36,14 @@ body {
 .center-content>.heading {
     font-size: 60px;
     font-weight: 600;
-    color:aliceblue
+    color: aliceblue
 }
 
 .center-content>.simple {
     font-size: 20px;
     /* font-family: cursive; */
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color:white
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white
 }
 
 .landingPageContainer>button {
@@ -57,6 +57,7 @@ body {
     color: white;
     font-size: 20px;
 }
+
 /* Landing page responsive */
 
 /* LandingPage Styling end------------------------------------------------------------------------------------------*/
@@ -64,29 +65,36 @@ body {
     .center-content>.heading {
         font-size: 30px;
     }
+
     .center-content>.simple {
         font-size: 15px;
     }
+
     .landingPageContainer>button {
         width: 200px;
     }
-    
+
 }
+
 @media screen and (min-width:260px) and (max-width:480px) {
     .center-content>.heading {
         font-size: 30px;
     }
+
     .center-content>.simple {
         font-size: 12px;
     }
+
     .landingPageContainer>button {
         width: 200px;
     }
+
     .center-content {
         margin-right: 40px;
     }
-    
+
 }
+
 /* NavBar Styling start---------------------------------------------------------------------------------------------*/
 #navbarNav {
     margin-left: 250px;
@@ -111,6 +119,7 @@ body {
     font-family: cursive;
     color: var(--main-color);
 }
+
 /* NavBar responsive */
 @media screen and (min-width: 250px) and (max-width: 992px) {
     #navbarNav {
@@ -140,6 +149,7 @@ body {
         margin-left: 10px;
     }
 }
+
 /* NavBar Styling end---------------------------------------------------------------------------------------------*/
 
 /* HomePage Styling start---------------------------------------------------------------------------------------- */
@@ -167,16 +177,19 @@ body {
     cursor: pointer;
     color: black;
 }
-
-/* .services:hover {
+.service-bgcolor{
     background-color: var(--main-color);
     color: white;
-} */
+}
+.service-default-bgcolor{
+    background-color: white;
+}
 
 .catCard {
     padding: 5px;
     Box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+
 /* HomePage Styling end---------------------------------------------------------------------------------------- */
 
 /* Footer Styling start------------------------------------------------------------------------------------------ */
@@ -248,6 +261,7 @@ body {
 .fa-youtube {
     color: #CD201F;
 }
+
 /* Footer Styling start------------------------------------------------------------------------------------------ */
 
 /* Register Page styling start----------------------------------------------------------------------------------- */
@@ -255,84 +269,107 @@ body {
     /* border: 1px solid rgb(8, 8, 8); */
     border-radius: 10px;
     width: 350px;
-    margin:30px auto;
+    margin: 30px auto;
     padding: 35px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.FormContainer>i{
+
+.FormContainer>i {
     font-size: 40px;
     color: var(--main-color);
     margin-left: 15px;
 }
-.FormContainer>form>input{
-    margin:10px 0;
+
+.FormContainer>form>input {
+    margin: 10px 0;
     outline: 0;
     padding: 5px 30px;
     border-radius: 5px;
 }
-.FormContainer>form>select{
-    margin:10px 0;
+
+.FormContainer>form>select {
+    margin: 10px 0;
     outline: 0;
     padding: 5px 30px;
     border-radius: 5px;
 }
-.FormContainer>form>textarea{
-    margin:10px 0;
+
+.FormContainer>form>textarea {
+    margin: 10px 0;
     outline: 0;
     padding: 5px 30px;
     border-radius: 5px;
 }
-.FormContainer>form>.btn{
+
+.FormContainer>form>.btn {
     background-color: var(--main-color);
     color: white;
     width: 100%;
 }
-.FormContainer>form>.f-text{
+
+.FormContainer>form>.f-text {
     font-size: 14px;
 }
-.FormContainer>form>.ff{
+
+.FormContainer>form>.ff {
     font-size: 14px;
     text-align: center;
 }
-.FormContainer>form>p>.f-login{
+
+.FormContainer>form>p>.f-login {
     color: var(--main-color);
     text-decoration: none;
     font-size: 15px;
     cursor: pointer;
 }
-.FormContainer>form>p>.l-tc{
+
+.FormContainer>form>p>.l-tc {
     text-decoration: solid;
 }
-.FormContainer>form{
+
+.FormContainer>form {
     padding: 10px;
 }
-.logout{
-  font-size: 50px;
+
+.logout {
+    font-size: 50px;
 }
+
+.fa-eye {
+    font-size: 16px;
+    position: relative;
+    bottom: 40px;
+    left:200px
+}
+
 /* Register page responsive*/
 @media screen and (min-width: 260px) and (max-width: 360px) {
     .FormContainer {
         width: 280px;
     }
-    .FormContainer>form>input{
+
+    .FormContainer>form>input {
         padding: 5px 10px;
     }
-    .FormContainer>form>textarea{
+
+    .FormContainer>form>textarea {
         padding: 5px 14px;
     }
 
 }
+
 /* Register Page styling end----------------------------------------------------------------------------------- */
 
 /* About Us Page styling start--------------------------------------------------------------------------------------- */
-.aboutUsHeading{
+.commonHeading {
     text-align: center;
     padding: 40px;
     color: dimgray;
     font-size: 25px;
-    
+
 }
-.boxContainer{
+
+.boxContainer {
     /* border: 2px solid black; */
     display: flex;
     padding: 20px;
@@ -341,28 +378,37 @@ body {
     justify-content: space-evenly;
     align-items: center;
 }
-.boxContainer>.imagearea{
-    width:300px;
+
+.boxContainer>.imagearea {
+    width: 300px;
     /* border: 2px solid red; */
 }
-.boxContainer>.imagearea>img{
-   width: 100%;
+
+.boxContainer>.imagearea>img {
+    width: 100%;
 }
-.boxContainer>.textarea{
-    width:600px;
+
+.boxContainer>.textarea {
+    width: 600px;
     /* border: 2px solid red; */
 
 }
-.aboutUsmagic{
-    color:black;
+
+.commonmagic {
+    color: black;
     font-size: 16px;
     font-weight: 900;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 /* About Us Page styling end--------------------------------------------------------------------------------------- */
 
-/* ContactUs Page Styling Start------------------------------------------------------------------------------------ */
-
-
-
-/* ContactUs Page Styling end------------------------------------------------------------------------------------ --*/
+/* DT-page styling start --------------------------------------------------------------------------------*/
+.DTP-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.DTP-card-container{
+    text-align: center;
+}

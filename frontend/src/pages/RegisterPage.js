@@ -1,10 +1,11 @@
 import '../index.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { asyncUserRegister } from '../redux/actions/userRegisterActions'
 import NavBar from "../component/NavBar"
 import Footer from "../component/Footer"
 const RegisterPage = (props) => {
+    const passwordRef = useRef()
     const dispatch = useDispatch()
     const registerInfo = useSelector((state) => {
         return state.registerInfo
@@ -33,7 +34,7 @@ const RegisterPage = (props) => {
             password: password,
             role: role
         }
-        dispatch(asyncUserRegister(registeredData,props))
+        dispatch(asyncUserRegister(registeredData, props))
         const reset = () => {
             setUsername('')
             setEmail('')
@@ -46,6 +47,13 @@ const RegisterPage = (props) => {
     const redirect = () => {
         props.history.push('/login')
     }
+    const showHidePassword = () => {
+        if (passwordRef.current.type === 'password') {
+            passwordRef.current.type = 'text'
+        } else {
+            passwordRef.current.type = 'password'
+        }
+    }
     return (
         <div>
             <NavBar />
@@ -54,7 +62,8 @@ const RegisterPage = (props) => {
                 <form onSubmit={handleSubmit}>
                     <input type="text" placeholder="username" value={username} onChange={handleUsernameChange} /><br />
                     <input type="text" placeholder="email" value={email} onChange={handleEmailChange} /><br />
-                    <input type="password" placeholder="password" value={password} onChange={handlePasswordChange} /><br />
+                    <input type="password" placeholder="password" value={password} onChange={handlePasswordChange} ref={passwordRef} />
+                    <i className="fa fa-eye" onClick={showHidePassword}></i><br />
                     <select id="user" value={role} onChange={handleRoleChange}>
                         <option>who are you?</option>
                         <option value="customer">customer</option>

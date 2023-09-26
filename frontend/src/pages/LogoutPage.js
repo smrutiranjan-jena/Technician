@@ -12,8 +12,8 @@ const LogoutPage = (props) => {
     }
     return (
         <div>
-            <h1 className="aboutUsHeading">Exit Here</h1>
-            <div className="aboutUsContainer">
+            <h1 className="commonHeading">Exit Here</h1>
+            <div className="commonContainer">
                 <div className="boxContainer">
                     <div className="textarea">
                         <p className='logout'>
