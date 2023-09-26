@@ -4,7 +4,7 @@ const authenticateUser = (req, res, next) => {
     if (token) {
         token = token.split(' ')[1]
         try {
-            const tokenData = jwt.verify(token, "smrutilasya")
+            const tokenData = jwt.verify(token,process.env.JWT_SECRET_KEY)
             req.user = {
                 id: tokenData.id,
                 role:tokenData.role

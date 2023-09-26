@@ -15,7 +15,7 @@ const NavBar = (props) => {
                             <Link to="/home" className="nav-item">Home</Link>
                             <Link to="/about" className="nav-item">About Us</Link>
                             <Link to="/contact" className="nav-item">Contact Us</Link>
-                            <Link to="/mybook" className="nav-item">MyBookings</Link>
+                            <Link to="/mybook" className="nav-item">MyBook</Link>
                             <Link to="/profile" className="nav-item">Profile</Link>
                             <Link to="/logout" className="nav-item">Logout</Link>
                         </div>
@@ -33,7 +33,7 @@ const NavBar = (props) => {
                             <Link to="/about" className="nav-item">About Us</Link>
                             <Link to="/contact" className="nav-item">Contact Us</Link>
                             <Link to="/bookings" className="nav-item">Bookings</Link>
-                            <Link to="/enquiries" className="nav-item">Enquiries</Link>
+                            {/* <Link to="/enquiries" className="nav-item">Enquiries</Link> */}
                             <Link to="/profile" className="nav-item">Profile</Link>
                             <Link to="/logout" className="nav-item">Logout</Link>
                         </div>
@@ -49,9 +49,9 @@ const NavBar = (props) => {
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <Link to="/home" className="nav-item">Home</Link>
                             <Link to="/bookings" className="nav-item">Bookings</Link>
-                            <Link to="/enquiries" className="nav-item">Enquiries</Link>
-                            <Link to="/customers" className="nav-item">Customers</Link>
-                            <Link to="/Technicians" className="nav-item">Technicians</Link>
+                            {/* <Link to="/enquiries" className="nav-item">Enquiries</Link> */}
+                            <Link to="/allcustomers" className="nav-item">Customers</Link>
+                            <Link to="/alltechnicians" className="nav-item">Technicians</Link>
                             <Link to="/profile" className="nav-item">Profile</Link>
                             <Link to="/logout" className="nav-item">Logout</Link>
                         </div>

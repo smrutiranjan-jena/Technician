@@ -18,12 +18,13 @@ const technicianSchema=new Schema({
         type:String,
         required:true
     },
-    address:{
-        type:String,
-        required:true
-    },
     experience:{
         type:Number,
+        required:true
+    },
+    availability:{
+        type:Boolean,
+        default:true,
         required:true
     },
     userId:{

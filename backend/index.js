@@ -3,7 +3,7 @@ const userCltr = require('./controllers/usersController')
 const addressCltr = require('./controllers/addressesController')
 const technicianCltr = require('./controllers/techniciansController')
 const reviewCltr = require('./controllers/reviewsController')
-const enquiryCltr=require('./controllers/enquiriesController')
+const enquiryCltr = require('./controllers/enquiriesController')
 const authenticateUser = require('./middleware/authentication')
 const authorizeUser = require('./middleware/authorization')
 const configureDB = require('./config/configureDB')
@@ -32,7 +32,6 @@ app.delete('/api/users/:id', authenticateUser, (req, res, next) => {
     req.permittedRoles = ['admin']
     next()
 }, authorizeUser, userCltr.removeUser)
-
 //Category routes ################################################################################################
 
 app.post('/api/categories', authenticateUser, (req, res, next) => {
@@ -75,22 +74,26 @@ app.post('/api/techniciandetails', authenticateUser, (req, res, next) => {
     req.permittedRoles = ['technician']
     next()
 }, authorizeUser, technicianCltr.createOwnDetails)
-app.post('/api/techniciandetails/:id', authenticateUser, (req, res, next) => {
+app.get('/api/techniciandetails/own', authenticateUser, (req, res, next) => {
     req.permittedRoles = ['technician']
     next()
 }, authorizeUser, technicianCltr.getOwnDetails)
-app.post('/api/techniciandetails/:id', authenticateUser, (req, res, next) => {
+app.put('/api/techniciandetails/:id', authenticateUser, (req, res, next) => {
     req.permittedRoles = ['technician']
     next()
 }, authorizeUser, technicianCltr.updateOwnDetails)
-app.post('/api/techniciandetails/all', authenticateUser, (req, res, next) => {
+app.get('/api/techniciandetails/all', authenticateUser, (req, res, next) => {
     req.permittedRoles = ['admin', 'customer']
     next()
 }, authorizeUser, technicianCltr.getAllTechDetails)
-app.post('/api/techniciandetails/:id', authenticateUser, (req, res, next) => {
+app.get('/api/techniciandetails/:userId', authenticateUser, (req, res, next) => {
     req.permittedRoles = ['admin', 'customer']
     next()
 }, authorizeUser, technicianCltr.getSingleDetails)
+app.get('/api/techniciandetails/all/:category/:city', authenticateUser, (req, res, next) => {
+    req.permittedRoles = ['customer']
+    next()
+}, authorizeUser, technicianCltr.getAllTechByCategory)
 
 // reviews routes ##############################################################################################
 
@@ -147,6 +150,16 @@ app.get('/api/enquiries/enquiries/all:technicianId', authenticateUser, (req, res
 // booking routes ##############################################################################################
 
 
+//admin routes #################################################################################################
+
+app.get('/api/users/customers/all', authenticateUser, (req, res, next) => {
+    req.permittedRoles = ['admin']
+    next()
+}, authorizeUser, userCltr.getAllCustomers)
+app.get('/api/users/technicians/all', authenticateUser, (req, res, next) => {
+    req.permittedRoles = ['admin']
+    next()
+}, authorizeUser, userCltr.getAllTechnicians)
 app.listen(port, () => {
     console.log("server is running at port ", port)
     // console.log(process.env)

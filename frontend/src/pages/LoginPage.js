@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useState } from 'react'
+import { useState,useRef } from 'react'
 import { asyncUserLogin } from '../redux/actions/userLoginActions'
 import NavBar from "../component/NavBar"
 import Footer from "../component/Footer"
 const LoginPage = (props) => {
+    const passwordRef = useRef()
     const dispatch = useDispatch()
     const loginInfo=useSelector((state)=>{
         return state.loginInfo
@@ -30,6 +31,13 @@ const LoginPage = (props) => {
     const redirect = () => {
         props.history.push('/register')
     }
+    const showHidePassword = () => {
+        if (passwordRef.current.type === 'password') {
+            passwordRef.current.type = 'text'
+        } else {
+            passwordRef.current.type = 'password'
+        }
+    }
     return (
         <div>
             <NavBar />
@@ -37,7 +45,8 @@ const LoginPage = (props) => {
                 <i className="fa fa-sign-in" aria-hidden="true"></i>
                 <form onSubmit={handleSubmit}>
                     <input type="text" placeholder="username" onChange={handleUsernameChange} /><br />
-                    <input type="password" placeholder="password" onChange={handlePasswordChange} /><br />
+                    <input type="password" placeholder="password" onChange={handlePasswordChange} ref={passwordRef} />
+                    <i className="fa fa-eye" onClick={showHidePassword}></i><br />
                     <input type="checkbox" /><span className='f-text'> I agree to the terms & conditions</span><br />
                     <input type="submit" className='btn' value="Login" /><br />
                     <p className='ff'>New user?<span className='f-login' onClick={redirect}> Register</span></p>
