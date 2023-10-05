@@ -412,3 +412,9 @@ body {
 .DTP-card-container{
     text-align: center;
 }
+/* myBook page................................... */
+.bookingsBoxContainer{
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}

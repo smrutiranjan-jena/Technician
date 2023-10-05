@@ -11,7 +11,7 @@ const DisplayTechniciansByCategoryPage = (props) => {
     const BookMeAction = (technician) => {
         props.history.push({
             pathname: '/booking',
-            state: {...props.location.state,technician:technician}
+            state: { ...props.location.state, technician: technician }
         })
     }
     return (
@@ -22,7 +22,7 @@ const DisplayTechniciansByCategoryPage = (props) => {
                         body
                         className="my-2"
                         style={{
-                            width: '18rem',textAlign:"left"
+                            width: '18rem', textAlign: "left"
                         }}
                     >
                         <CardTitle tag="h5">
@@ -33,9 +33,9 @@ const DisplayTechniciansByCategoryPage = (props) => {
                             City : {technician.city}<br />
                             Experience : {technician.experience}yrs<br />
                             Mobile : {technician.mobile} <br />
-                            availabity : {technician.availability?"yes":"no"} <br />
+                            availabity : {technician.availability ? "yes" : "no"} <br />
                         </CardText>
-                        <Button color="primary" onClick={()=>{
+                        <Button color="primary" onClick={() => {
                             BookMeAction(technician)
                         }}>
                             Book Me

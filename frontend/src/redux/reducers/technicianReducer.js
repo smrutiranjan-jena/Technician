@@ -7,8 +7,7 @@ const technicianReducer = (state = initialState, action) => {
             return { ...state }
         } case "GET_OWN_DETAILS": {
             return { ...state, ownDetails: { ...action.payload } }
-        }
-        default: {
+        } default: {
             return { ...state }
         }
     }

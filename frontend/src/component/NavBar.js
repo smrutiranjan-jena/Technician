@@ -32,7 +32,7 @@ const NavBar = (props) => {
                             <Link to="/home" className="nav-item">Home</Link>
                             <Link to="/about" className="nav-item">About Us</Link>
                             <Link to="/contact" className="nav-item">Contact Us</Link>
-                            <Link to="/bookings" className="nav-item">Bookings</Link>
+                            <Link to="/appointments" className="nav-item">Apponintments</Link>
                             {/* <Link to="/enquiries" className="nav-item">Enquiries</Link> */}
                             <Link to="/profile" className="nav-item">Profile</Link>
                             <Link to="/logout" className="nav-item">Logout</Link>
@@ -48,8 +48,7 @@ const NavBar = (props) => {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <Link to="/home" className="nav-item">Home</Link>
-                            <Link to="/bookings" className="nav-item">Bookings</Link>
-                            {/* <Link to="/enquiries" className="nav-item">Enquiries</Link> */}
+                            <Link to="/allbookings" className="nav-item">AllBookings</Link>
                             <Link to="/allcustomers" className="nav-item">Customers</Link>
                             <Link to="/alltechnicians" className="nav-item">Technicians</Link>
                             <Link to="/profile" className="nav-item">Profile</Link>

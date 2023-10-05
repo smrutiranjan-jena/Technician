@@ -1,21 +1,31 @@
 import profile from '../assets/images/5907.jpg'
 import '../index.css'
-import TechDetailsForm from '../component/TechDetailsForm'
-import TechDetailsShow from '../component/TechDetailsShow'
+import Subscription from '../component/Subscription'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { startGetUserProfileDetails } from '../redux/actions/userActions'
+import { startGetOwnDetails } from '../redux/actions/technicianActions'
 const ProfilePage = (props) => {
+    const[message,setMessage]=useState('')
     const dispatch = useDispatch()
     const user = useSelector((state) => {
         return state.user
     })
+    const technician = useSelector((state) => {
+        return state.technician
+    })
+    console.log(technician)
+   
     useEffect(() => {
         (function () {
             dispatch(startGetUserProfileDetails())
+            dispatch(startGetOwnDetails())
         })()
     }, [])
     const userRole = localStorage.getItem('role')
+    const callback=(message)=>{
+          setMessage(message)
+    }
     return (
         <div>
             <h1 className="commonHeading">My Profile</h1>
@@ -32,27 +42,18 @@ const ProfilePage = (props) => {
                             {user.username}
                             <br />
                             <br />
-                            Email :  
+                            Email :
                             {user.email}
                         </p>
                     </div>
                 </div>
             </div>
-            {userRole === 'technician' ? (
-                <div>
-                    <h1 className="commonHeading">Are You a Technician ? Add Your Details</h1>
-                    <p style={{ textAlign: 'center', padding: '20px', color: 'red' }}>Alert! This Details helps the customer to reach with you, so be careful while adding these credential .</p>
-                    <div className="commonContainer">
-                        <div className="boxContainer">
-                            <TechDetailsForm />
-                            <TechDetailsShow/>
-                        </div>
-                    </div>
-                </div>
+            {userRole === 'technician' && Object.keys(technician.ownDetails).length === 0 ? (
+                <Subscription props={props}/>
             ) : (
                 null
             )}
-        </div>
+        </div >
     )
 }
 export default ProfilePage

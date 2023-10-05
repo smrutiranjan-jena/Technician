@@ -4,6 +4,8 @@ const addressCltr = require('./controllers/addressesController')
 const technicianCltr = require('./controllers/techniciansController')
 const reviewCltr = require('./controllers/reviewsController')
 const enquiryCltr = require('./controllers/enquiriesController')
+const bookingCltr=require('./controllers/bookingController')
+const paymentCltr = require('./controllers/paymentController')
 const authenticateUser = require('./middleware/authentication')
 const authorizeUser = require('./middleware/authorization')
 const configureDB = require('./config/configureDB')
@@ -24,6 +26,7 @@ app.post('/api/users/login', userCltr.login)//user either customer or technician
 //>>>>private routes
 app.get('/api/users/profile', authenticateUser, userCltr.account)//user either customer or technician or admin
 app.put('/api/users/profile', authenticateUser, userCltr.accountUpdate)//user either customer or technician or admin
+app.get('/api/users/profile/:id', authenticateUser, userCltr.getAccountById)//user either customer or technician or admin
 app.get('/api/users/all', authenticateUser, (req, res, next) => {
     req.permittedRoles = ['admin']
     next()
@@ -95,6 +98,7 @@ app.get('/api/techniciandetails/all/:category/:city', authenticateUser, (req, re
     next()
 }, authorizeUser, technicianCltr.getAllTechByCategory)
 
+
 // reviews routes ##############################################################################################
 
 app.post('/api/reviews', authenticateUser, (req, res, next) => {
@@ -148,9 +152,28 @@ app.get('/api/enquiries/enquiries/all:technicianId', authenticateUser, (req, res
 }, authorizeUser, enquiryCltr.getEnquriesByTechnician)//get a list of all Enquiries relavant to the specific technician.
 
 // booking routes ##############################################################################################
-
-
-//admin routes #################################################################################################
+app.post('/api/bookings/create',authenticateUser, (req, res, next) => {
+    req.permittedRoles = ['customer']
+    next()
+}, authorizeUser, bookingCltr.create)
+app.get('/api/bookings/all/own',authenticateUser, (req, res, next) => {
+    req.permittedRoles = ['customer']
+    next()
+}, authorizeUser, bookingCltr.getAllBookingsByOwn)
+app.get('/api/bookings/all/:techId',authenticateUser, (req, res, next) => {
+    req.permittedRoles = ['technician']
+    next()
+}, authorizeUser, bookingCltr.getAllBookingsById)
+app.post('/api/bookings/update/:id',authenticateUser, (req, res, next) => {
+    req.permittedRoles = ['technician']
+    next()
+}, authorizeUser, bookingCltr.updateStatus)
+//admin routes ################################
+app.get('/api/bookings/all',authenticateUser, (req, res, next) => {
+    req.permittedRoles = ['admin']
+    next()
+}, authorizeUser, bookingCltr.getAllBookings)
+// #################################################################
 
 app.get('/api/users/customers/all', authenticateUser, (req, res, next) => {
     req.permittedRoles = ['admin']
@@ -164,3 +187,7 @@ app.listen(port, () => {
     console.log("server is running at port ", port)
     // console.log(process.env)
 })
+
+// payment routes ###############################################################################
+app.post('/api/payments/order', paymentCltr.createOrder)
+app.post('/api/payments/verify', paymentCltr.verifyOrder)

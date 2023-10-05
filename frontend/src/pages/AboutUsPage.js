@@ -75,8 +75,8 @@ const AboutUsPage = (props) => {
                     </div>
                 </div>
             </div>
-            {/* third .......................................... */}
-            <h1 className="commonHeading">Why Choose Us ?</h1>
+            {/* third ....................<h1 className="commonHeading">Why Choose Us ?</h1>...................... */}
+            
             <div className="commonContainer">
                 <div className="boxContainer">
                     <div className="textarea">
