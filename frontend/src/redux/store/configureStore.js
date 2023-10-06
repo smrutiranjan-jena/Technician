@@ -7,6 +7,7 @@ import userReducer from '../reducers/userReducer'
 import technicianReducer from '../reducers/technicianReducer'
 import findTechnicianReducer from '../reducers/findTechnicianReducer'
 import adminReducer from '../reducers/adminReducer'
+import bookingReducer from '../reducers/bookingReducer'
 const configureStore = () => {
     const store = createStore(combineReducers({
         categories: categoryReducer,
@@ -15,7 +16,8 @@ const configureStore = () => {
         user:userReducer,
         technician:technicianReducer,
         AllfillteredTechList:findTechnicianReducer,
-        wholeList:adminReducer
+        wholeList:adminReducer,
+        bookings:bookingReducer
     }), applyMiddleware(thunk))
     return store
 }

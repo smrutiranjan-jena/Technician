@@ -14,6 +14,8 @@ export const startGetUserProfileDetails = () => {
         }
     }
 }
+
+
 const getUserProfileDetails = (userData) => {
     return {
         type: "GET_USER_PROFILE_DETAILS",

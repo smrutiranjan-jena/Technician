@@ -15,7 +15,7 @@ const AllCustoListPage = () => {
         <div>
             <h1 className="commonHeading">All Costumers Here</h1>
            <Table hover>
-                <thead>
+                <thead >
                     <tr>
                         <th>
                             #

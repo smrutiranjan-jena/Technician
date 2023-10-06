@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { asyncGetAllCategories } from '../redux/actions/categoryActions';
 import { startFindTechnician } from '../redux/actions/findTechnicianActions';
 const CategoryList = (props) => {
-    const userRole = localStorage.getItem('role')
+    const token = localStorage.getItem('token')
     const [serviceTitle, setServiceTitle] = useState('')
     const [servicePrice, setServicePrice] = useState(0)
     const [categoryTitle, setCategoryTitle] = useState('')
@@ -26,12 +26,13 @@ const CategoryList = (props) => {
         setItem(index)
         setId(categoryId)
         setIsActive(!isActive)
-        if (userRole === null) {
-            props.history.push('/register')
-        } else {
+        if (token) {
             setServiceTitle(serviceTitle)
             setServicePrice(servicePrice)
             setCategoryTitle(categoryTitle)
+        }
+        else {
+            props.history.push('/register')
         }
     }
     const findTechnician = async (categoryTitle) => {
@@ -44,15 +45,20 @@ const CategoryList = (props) => {
             },
             showCancelButton: false
         })
-        const filterQuery = {
-            category: categoryTitle,
-            city: text
+        if (text) {
+            const filterQuery = {
+                category: categoryTitle,
+                city: text
+            }
+            dispatch(startFindTechnician(filterQuery))
+            props.history.push({
+                pathname: '/techbycategory',
+                state: { serviceTitle: serviceTitle, servicePrice: servicePrice, categoryTitle: categoryTitle }
+            })
+        }else{
+            props.history.push('/home')
         }
-        dispatch(startFindTechnician(filterQuery))
-        props.history.push({
-            pathname: '/techbycategory',
-            state: { serviceTitle: serviceTitle, servicePrice: servicePrice, categoryTitle: categoryTitle }
-        })
+
     }
 
     return (
@@ -92,15 +98,19 @@ const CategoryList = (props) => {
 
                         </ListGroup>
                         <CardBody>
-                            <Button
-                                color="primary"
-                                outline
-                                onClick={() => {
-                                    findTechnician(category.title)
-                                }}
-                            >
-                                Find Technician
-                            </Button>
+                            {token ? (
+                                <Button
+                                    color="primary"
+                                    outline
+                                    onClick={() => {
+                                        findTechnician(category.title)
+                                    }}
+                                >
+                                    Find Technician
+                                </Button>
+                            ) : (
+                                null
+                            )}
                         </CardBody>
                     </Card>
                 )

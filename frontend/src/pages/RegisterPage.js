@@ -60,6 +60,7 @@ const RegisterPage = (props) => {
             <div className="FormContainer">
                 <i className="fa fa-address-card"></i>
                 <form onSubmit={handleSubmit}>
+                    <p style={{color:"blue",fontSize:"20px"}}>Register</p>
                     <input type="text" placeholder="username" value={username} onChange={handleUsernameChange} /><br />
                     <input type="text" placeholder="email" value={email} onChange={handleEmailChange} /><br />
                     <input type="password" placeholder="password" value={password} onChange={handlePasswordChange} ref={passwordRef} />

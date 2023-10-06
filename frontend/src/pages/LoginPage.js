@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useState,useRef } from 'react'
+import { useState, useRef } from 'react'
 import { asyncUserLogin } from '../redux/actions/userLoginActions'
 import NavBar from "../component/NavBar"
 import Footer from "../component/Footer"
 const LoginPage = (props) => {
     const passwordRef = useRef()
     const dispatch = useDispatch()
-    const loginInfo=useSelector((state)=>{
+    const loginInfo = useSelector((state) => {
         return state.loginInfo
     })
     const [username, setUsername] = useState('')
@@ -23,7 +23,7 @@ const LoginPage = (props) => {
             username: username,
             password: password
         }
-        dispatch(asyncUserLogin(logInData,props))
+        dispatch(asyncUserLogin(logInData, props))
         setUsername('')
         setPassword('')
     }
@@ -44,6 +44,7 @@ const LoginPage = (props) => {
             <div className="FormContainer">
                 <i className="fa fa-sign-in" aria-hidden="true"></i>
                 <form onSubmit={handleSubmit}>
+                    <p style={{ color: "blue", fontSize: "20px" }}>Login</p>
                     <input type="text" placeholder="username" onChange={handleUsernameChange} /><br />
                     <input type="password" placeholder="password" onChange={handlePasswordChange} ref={passwordRef} />
                     <i className="fa fa-eye" onClick={showHidePassword}></i><br />

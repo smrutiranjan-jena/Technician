@@ -2,13 +2,14 @@ import { useState,useEffect } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { startGetOwnDetails } from "../redux/actions/technicianActions";
 const TechDetailsShow=()=>{
-    useEffect(()=>{
-       dispatch(startGetOwnDetails())
-    },[])
     const dispatch=useDispatch()
     const technician=useSelector((state)=>{
         return state.technician
     })
+    useEffect(()=>{
+       dispatch(startGetOwnDetails())
+    },[])
+    
     return(
         <div>
              <div className="textarea">
