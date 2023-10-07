@@ -1,21 +1,19 @@
-import me from '../assets/images/1683734801930.jpg'
-import { Button } from 'reactstrap';
+
 import React, { useState } from 'react';
 const AdminHome = (props) => {
     return (
-        <div>
-            <div className="commonContainer">
-                <div className="boxContainer">
-                    <div className="imagearea">
-                        <img src={me} style={{borderRadius:'45%',border:"3px solid #4472C4"}}/>
-                    </div>
-                    <div className="textarea">
-                        <p>
-                            <p style={{ fontSize: "40px", color: "blue" }}>Hii ): Smruti  Ranjan Jena</p>
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div style={{
+            width: "300px",
+            margin: "150px auto",
+            textAlign: "center",
+            color: "#4472C4",
+            fontSize: "30px"
+        }}>
+            <p
+                style={{
+                    fontSize: "100px"
+                }}>Hii</p>
+            <p>YOU ARE ADMIN !</p>
         </div>
     )
 }

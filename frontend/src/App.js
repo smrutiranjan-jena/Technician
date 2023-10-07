@@ -37,7 +37,7 @@ const App = (props) => {
         <Route exact path="/details" component={AddDetailsPage} />
         <Route exact path="/appointments" component={AppointmentPage} />
         <Route exact path="/allbookings" component={AllBookListPage} />
-        <Route exact path="*" component={PageNotFound} />
+        <Route exact path="*" component={PageNotFound} />//fallback route
       </Switch>
     </div>
   )

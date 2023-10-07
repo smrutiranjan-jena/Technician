@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import '../index.css'
+import EmptyAppointment from "../component/EmptyAppointment"
 import Swal from 'sweetalert2'
 import Pikaday from 'pikaday'
 import { Card, CardBody, CardFooter, CardHeader, CardTitle, CardText, Button } from 'reactstrap'
@@ -75,65 +76,70 @@ const AppointmentPage = (props) => {
     return (
         <div>
             <h1 className="commonHeading"> Your Appointments Are Here! </h1>
-            <div className="bookingsBoxContainer">
-                {bookings.filteredAppointments.map((ele) => {
-                    return <Card
-                        className="my-2"
-                        style={{
-                            width: '40rem'
-                        }}
-                    >
-                        <CardHeader>
-                            Booking Id : {ele._id}
-                        </CardHeader>
-                        <CardBody>
-                            <CardTitle tag="h5">
-                                Appointment Details
-                            </CardTitle>
-                            <CardText>
-                                {/* <b>Technician</b> : {ele.technicianName}<br />
+            {bookings.filteredAppointments.length === 0 ? (
+                <EmptyAppointment {...props}/>
+            ) : (
+                <div className="bookingsBoxContainer">
+                    {bookings.filteredAppointments.map((ele) => {
+                        return <Card
+                            className="my-2"
+                            style={{
+                                width: '40rem'
+                            }}
+                        >
+                            <CardHeader>
+                                Booking Id : {ele._id}
+                            </CardHeader>
+                            <CardBody>
+                                <CardTitle tag="h5">
+                                    Appointment Details
+                                </CardTitle>
+                                <CardText>
+                                    {/* <b>Technician</b> : {ele.technicianName}<br />
                                 <b>Experience</b> :{ele.experience}yrs<br /> */}
-                                <b>Service</b> : {ele.serviceType}<br />
-                                <b>Amount</b> : Rs.{ele.amount}/-<br />
-                                <b>Payment</b> : {ele.paymentStatus}<br />
-                                <b>ReachingDate</b> : {ele.reachingDate}<br /><br />
-                                <b>Status</b> : <span style={{ color: "red" }}>{ele.bookingStatus}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                                {ele.bookingStatus === "pending" ? (
-                                    <span>
-                                        <Button
-                                            color="primary"
-                                            outline
-                                            onClick={() => {
-                                                handleStatusConfirm(ele._id)
-                                            }}
-                                        >
-                                            confirm
-                                        </Button>&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <Button
-                                            color="primary"
-                                            outline
-                                            onClick={() => {
-                                                handleStatusCancel(ele._id)
-                                            }}
-                                        >
-                                            cancel
-                                        </Button>
-                                    </span>
-                                ) : <span>&nbsp;&nbsp;<Button
-                                    color="primary"
-                                    outline
-                                    onClick={() => {
-                                        handleStatusCancel(ele._id)
-                                    }}
-                                >
-                                    cancel
-                                </Button></span>}<br />
-                            </CardText>
-                        </CardBody>
-                    </Card>
-                })}
-            </div>
-        </div>
+                                    <b>Service</b> : {ele.serviceType}<br />
+                                    <b>Amount</b> : Rs.{ele.amount}/-<br />
+                                    <b>Payment</b> : {ele.paymentStatus}<br />
+                                    <b>ReachingDate</b> : {ele.reachingDate}<br /><br />
+                                    <b>Status</b> : <span style={{ color: "red" }}>{ele.bookingStatus}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {ele.bookingStatus === "pending" ? (
+                                        <span>
+                                            <Button
+                                                color="primary"
+                                                outline
+                                                onClick={() => {
+                                                    handleStatusConfirm(ele._id)
+                                                }}
+                                            >
+                                                confirm
+                                            </Button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <Button
+                                                color="primary"
+                                                outline
+                                                onClick={() => {
+                                                    handleStatusCancel(ele._id)
+                                                }}
+                                            >
+                                                cancel
+                                            </Button>
+                                        </span>
+                                    ) : <span>&nbsp;&nbsp;<Button
+                                        color="primary"
+                                        outline
+                                        onClick={() => {
+                                            handleStatusCancel(ele._id)
+                                        }}
+                                    >
+                                        cancel
+                                    </Button></span>}<br />
+                                </CardText>
+                            </CardBody>
+                        </Card>
+                    })}
+                </div>
+            )
+            }
+        </div >
     )
 }
 export default AppointmentPage
