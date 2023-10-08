@@ -7,9 +7,9 @@ const Subscription = (props) => {
     const [duration, setDuration] = useState('')
     const [amount, setAmount] = useState(0)
     const subcribeData = [
-        { duration: '1 month', amount: 2000 },
-        { duration: '6 month', amount: 10000 },
-        { duration: '1 year', amount: 20000 }
+        { duration: '1 month', amount: 500 },
+        { duration: '6 month', amount: 2900 },
+        { duration: '1 year', amount: 5500 }
     ]
     const subscribeItem = (duration,amount) => {
         setDuration(duration)

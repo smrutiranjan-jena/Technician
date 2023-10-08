@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { startGetUserProfileDetails } from '../redux/actions/userActions'
 import { startGetOwnDetails } from '../redux/actions/technicianActions'
 const ProfilePage = (props) => {
-    const[message,setMessage]=useState('')
+    const [message, setMessage] = useState('')
     const dispatch = useDispatch()
     const user = useSelector((state) => {
         return state.user
@@ -15,7 +15,7 @@ const ProfilePage = (props) => {
         return state.technician
     })
     console.log(technician)
-   
+
     useEffect(() => {
         (function () {
             dispatch(startGetUserProfileDetails())
@@ -23,8 +23,8 @@ const ProfilePage = (props) => {
         })()
     }, [])
     const userRole = localStorage.getItem('role')
-    const callback=(message)=>{
-          setMessage(message)
+    const callback = (message) => {
+        setMessage(message)
     }
     return (
         <div>
@@ -35,21 +35,27 @@ const ProfilePage = (props) => {
                         <img src={profile} />
                     </div>
                     <div className="textarea">
-                        <p><span className="commonmagic">{userRole}</span>
+                        <p><span className="commonmagic" style={
+                            {
+                                textAlign: "center",
+                                color: "blue",
+                                textTransform:"capitalize",
+                                fontSize:"30px"
+                            }}>{userRole}</span>
                             <br />
                             <br />
                             <i className="fa fa-user"></i>
                             {user.username}
                             <br />
                             <br />
-                            Email :
+                            <b>Email</b> -
                             {user.email}
                         </p>
                     </div>
                 </div>
             </div>
             {userRole === 'technician' && Object.keys(technician.ownDetails).length === 0 ? (
-                <Subscription props={props}/>
+                <Subscription props={props} />
             ) : (
                 null
             )}
