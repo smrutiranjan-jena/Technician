@@ -1,6 +1,6 @@
 import NavBar from "../component/NavBar"
 import Footer from '../component/Footer'
-import {Button} from 'reactstrap'
+import { Button } from 'reactstrap'
 import manright from "../assets/images/plumber-pointing-lateral.jpg"
 import manthumb from "../assets/images/plumber-with-thumb-up.jpg"
 import whyus from "../assets/images/5217215.jpg"
@@ -34,9 +34,9 @@ const AboutUsPage = (props) => {
                             Contact Now
                         </Button>
                     </div>
-                    <div className="imagearea">
-                        <img src={manright} />
-                    </div>
+                        <div className="imagearea">
+                            <img src={manright} />
+                        </div>
                 </div>
             </div>
             {/* second.......................................... */}
@@ -66,18 +66,19 @@ const AboutUsPage = (props) => {
                             <br />
                             <br />
                             <Button
-                            color="primary"
-                            outline
-                        >
-                            Book Now
-                        </Button>
+                                color="primary"
+                                outline
+                            >
+                                Book Now
+                            </Button>
                         </p>
                     </div>
                 </div>
             </div>
             {/* third ....................<h1 className="commonHeading">Why Choose Us ?</h1>...................... */}
-            
+
             <div className="commonContainer">
+                <h1 className="commonHeading">Why Choose Us ?</h1>
                 <div className="boxContainer">
                     <div className="textarea">
                         <p>

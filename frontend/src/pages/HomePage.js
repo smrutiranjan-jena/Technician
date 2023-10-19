@@ -14,9 +14,9 @@ const HomePage = (props) => {
                 <TechHome {...props} />
             ) : role === "customer" ? (
                 <CategoryList {...props} />
-            ) :role === "admin" ? (
+            ) : role === "admin" ? (
                 <AdminHome {...props} />
-            ):(
+            ) : (
                 <CategoryList {...props} />
             )}
             <Footer />

@@ -21,13 +21,13 @@ const TechHome = (props) => {
                             <span className="commonmagic">Are you a Technician ?: </span> create your profile details
                             which will be helping to customers to reaching with you.
                         </p>
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
                         <Button
                             color="primary"
                             outline
                             onClick={() => {
-                               props.history.push('/profile')
+                                props.history.push('/profile')
                             }}
                         >
                             Create Profile

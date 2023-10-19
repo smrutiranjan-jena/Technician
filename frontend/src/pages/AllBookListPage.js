@@ -1,8 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect,useState } from 'react'
 import { Table } from "reactstrap"
 import { useDispatch, useSelector } from 'react-redux'
 import { startGetAllBookings } from '../redux/actions/bookingActions'
 const AllBookListPage = () => {
+    const [search,setSearch]=useState('')
+    const handleSerachChange=(e)=>{
+        setSearch(e.target.value)
+    }
     const dispatch = useDispatch()
     const bookings = useSelector((state) => {
         return state.bookings
@@ -11,9 +15,16 @@ const AllBookListPage = () => {
     useEffect(() => {
         dispatch(startGetAllBookings())
     }, [])
+    const result=bookings.allbookings.filter((ele)=>{
+        return ele.category.toLowerCase().includes(search)
+    })
     return (
         <div>
             <h1 className="commonHeading">All Bookings Here !</h1>
+            <form id="searchFilter">
+                <input type="text" value={search} onChange={handleSerachChange} placeholder="search by category"/>
+                <i className="fa fa-search"></i>
+            </form>
             <Table hover>
                 <thead >
                     <tr>
@@ -48,7 +59,7 @@ const AllBookListPage = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {bookings.allbookings.map((ele, ind) => {
+                    {result.map((ele, ind) => {
                         return <tr>
                             <th scope="row">
                                 {ind + 1}

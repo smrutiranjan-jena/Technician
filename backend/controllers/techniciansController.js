@@ -1,4 +1,4 @@
-const  mongoose  = require('mongoose')
+const mongoose = require('mongoose')
 const Technician = require('../models/technicianModel')
 const pick = require('lodash/pick')
 const technicianCltr = {}
@@ -35,6 +35,16 @@ technicianCltr.updateOwnDetails = async (req, res) => {
     }
 
 }
+technicianCltr.updateOwnDetailsAvailablity = async (req, res) => {
+    const body = req.body
+    try {
+        const technicianDoc = await Technician.findOneAndUpdate({ userId: req.user.id }, body, { new: true, runValidators: true })
+        res.json(technicianDoc)
+    } catch (err) {
+        res.json(err)
+    }
+
+}
 
 technicianCltr.getAllTechDetails = async (req, res) => {
     try {
@@ -48,17 +58,18 @@ technicianCltr.getAllTechDetails = async (req, res) => {
 technicianCltr.getSingleDetails = async (req, res) => {
     const id = req.params.userId
     try {
-        const technicianDoc = await Technician.findOne({userId:id})
+        const technicianDoc = await Technician.findOne({ userId: id })
         res.json(technicianDoc)
     } catch (err) {
         res.json(err)
     }
 }
-technicianCltr.getAllTechByCategory = async (req, res) => {
+technicianCltr.getAllTechByFiltering = async (req, res) => {
     const categoryTitle = req.params.category
-    const cityName=req.params.city
+    const cityName = req.params.city
+    const availability = req.params.availability
     try {
-        const techniciansList = await Technician.find({ category: categoryTitle, city: cityName })
+        const techniciansList = await Technician.find({ category: categoryTitle, city: cityName, availability: availability })
         res.json(techniciansList)
     } catch (err) {
         res.json(err)
