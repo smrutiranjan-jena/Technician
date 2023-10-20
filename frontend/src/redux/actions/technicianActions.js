@@ -28,6 +28,20 @@ export const startGetOwnDetails = (technicianDetails) => {
         }
     }
 }
+export const startUpdateOwnDetailsAvailability = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            const response = await axios.put('http://localhost:3004/api/techniciandetails/own/edit',data, {
+                headers: {
+                    "o-auth": localStorage.getItem('token')
+                }
+            })
+            console.log(response.data)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+}
 // sync regular action creators
 export const addOwnDetails = (data) => {
     return {

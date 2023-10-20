@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto&display=swap');
 
 :root {
-    --main-color: #4472C4
+    --main-color: #4472C4;
 }
 
 body {
     margin: 0;
     padding: 0;
-    Box-sizing: border-FooterBox;
+    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Roboto', sans-serif;
 }
@@ -412,9 +412,48 @@ body {
 .DTP-card-container{
     text-align: center;
 }
+.enquiry-container{
+    background-color: rgb(2, 2, 2);
+    text-align: left;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 20px;
+    margin-top: 10px;
+    color: white;
+}
+.enquiry-container>i{
+    color: #25D366;
+    font-size: 30px;
+}
+.enquiry-container>a>.fa-phone{
+   color: #0A66C2;
+}
+.enquiry-container>a>.fa-whatsapp{
+    color: #25D366;
+ }
+
 /* myBook page................................... */
 .bookingsBoxContainer{
     display:flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+}
+#searchFilter{
+    text-align: center;
+    margin-bottom: 40px;
+}
+#searchFilter>input{
+    outline: 0;
+    padding:5px 30px ;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius:5px ;
+}
+#searchFilter>i{
+    font-size: 15px;
+    background-color: black;;
+    padding: 11px;
+    color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius:5px ;
 }

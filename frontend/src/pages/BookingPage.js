@@ -24,6 +24,9 @@ const BookingPage = (props) => {
             name: 'Technician.com',
             description: 'xyz',
             order_id: orderData.id,
+            theme: {
+                "color": "#4472C4"
+            },
             handler: function (response) {//call after succesful payment
                 console.log(response)
                 axios.post('http://localhost:3004/api/payments/verify', response)
@@ -45,9 +48,6 @@ const BookingPage = (props) => {
                         dispatch(startAddBooking(bookingData, props))
                         console.log(bookings)
                     })
-            },
-            theme: {
-                "color": "#4472C4"
             }
         }
         const rzp = new window.Razorpay(options)

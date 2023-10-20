@@ -48,7 +48,8 @@ const CategoryList = (props) => {
         if (text) {
             const filterQuery = {
                 category: categoryTitle,
-                city: text
+                city: text,
+                availability:true
             }
             dispatch(startFindTechnician(filterQuery))
             props.history.push({

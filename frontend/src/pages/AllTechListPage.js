@@ -5,6 +5,10 @@ import { startGetAllTechnicians } from "../redux/actions/adminActions"
 import { startGetTechnicianDetails } from "../redux/actions/adminActions"
 import { startRemoveTechnician } from "../redux/actions/adminActions"
 const AllTechListPage = () => {
+    const [search,setSearch]=useState('')
+    const handleSerachChange=(e)=>{
+        setSearch(e.target.value)
+    }
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
     const dispatch = useDispatch()
@@ -23,9 +27,16 @@ const AllTechListPage = () => {
     const handleRemove = (id) => {
         dispatch(startRemoveTechnician(id))
     }
+    const result=wholeList.allTechnicians.filter((ele)=>{
+        return ele.username.includes(search)
+    })
     return (
         <div>
-            <h1 className="commonHeading">All Technicians Here</h1>
+            <h1 className="commonHeading">All Technicians Here !</h1>
+            <form id="searchFilter">
+                <input type="text" value={search} onChange={handleSerachChange} placeholder="search technician"/>
+                <i className="fa fa-search"></i>
+            </form>
             <Table hover>
                 <thead>
                     <tr>
@@ -48,7 +59,7 @@ const AllTechListPage = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {wholeList.allTechnicians.map((ele, ind) => {
+                    {result.map((ele, ind) => {
                         return <tr >
                             <th scope="row">
                                 {ind + 1}

@@ -85,6 +85,10 @@ app.put('/api/techniciandetails/:id', authenticateUser, (req, res, next) => {
     req.permittedRoles = ['technician']
     next()
 }, authorizeUser, technicianCltr.updateOwnDetails)
+app.put('/api/techniciandetails/own/edit', authenticateUser, (req, res, next) => {
+    req.permittedRoles = ['technician']
+    next()
+}, authorizeUser, technicianCltr.updateOwnDetailsAvailablity)
 app.get('/api/techniciandetails/all', authenticateUser, (req, res, next) => {
     req.permittedRoles = ['admin', 'customer']
     next()
@@ -93,10 +97,10 @@ app.get('/api/techniciandetails/:userId', authenticateUser, (req, res, next) => 
     req.permittedRoles = ['admin', 'customer']
     next()
 }, authorizeUser, technicianCltr.getSingleDetails)
-app.get('/api/techniciandetails/all/:category/:city', authenticateUser, (req, res, next) => {
+app.get('/api/techniciandetails/all/:category/:city/:availability', authenticateUser, (req, res, next) => {
     req.permittedRoles = ['customer']
     next()
-}, authorizeUser, technicianCltr.getAllTechByCategory)
+}, authorizeUser, technicianCltr.getAllTechByFiltering)
 
 
 // reviews routes ##############################################################################################
